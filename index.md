@@ -4,7 +4,7 @@ title: About me
 sitemap: false
 permalink: /about me
 hide_last_modified: true
-no_grouping
+no_grouping: true
 ---
 
 Welcome to my room! I’m an Armenian astrophysicist based in Santiago, Chile, currently pursuing a PhD at the Instituto de Estudios Astrofísicos, Universidad Diego Portales. My research focuses on high-redshift Active Galactic Nuclei (AGN) and their host galaxies. I study how these distant supermassive black holes influence their surroundings—do they help galaxies grow, or do they shut down star formation? 
