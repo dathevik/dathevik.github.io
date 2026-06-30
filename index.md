@@ -7,8 +7,6 @@ hide_last_modified: true
 no_grouping
 ---
 
-**Barev!** 
-
 Welcome to my room! I’m an Armenian astrophysicist based in Santiago, Chile, currently pursuing a PhD at the Instituto de Estudios Astrofísicos, Universidad Diego Portales. My research focuses on high-redshift Active Galactic Nuclei (AGN) and their host galaxies. I study how these distant supermassive black holes influence their surroundings—do they help galaxies grow, or do they shut down star formation? 
 
 Before moving to Chile, I earned my Bachelor’s and Master’s degrees at Yerevan State University. I have also worked in education as a certified physics content creator and methodological trainer for Armenia’s Ministry of Education and am a co-author of an Armenian methodological book for teachers in inclusive education.
@@ -20,3 +18,7 @@ My scientific interests cover galaxy formation and evolution, multiwavelength st
 After my PhD, I plan to stay on the dark side of academia—while many dream of early retirement, I dream of being a professor, sharing my passion with fresh minds and convincing those already retired to fund us a little more so that we can get more knowledge about the most mysterious black creatures in the universe.
 
 To learn more about my work and who I am, feel free to explore the sections of my website!
+
+<p style="font-size: 0.85em; font-style: italic; color: #888; margin-top: 2rem;">
+  Sidebar photo by <strong>k3stalker</strong>.
+</p>
