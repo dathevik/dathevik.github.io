@@ -14,6 +14,10 @@ sitemap: false
 
 - [*Discovery and characterization of 25 new quasars at 4.6 < z < 6.9 from wide-field multi-band surveys*](https://doi.org/10.1051/0004-6361/202554859){:target="_blank"} — Belladitta, S., Bañados, E., Xie, Z.-L., et al. (incl. **Mkrtchyan, T.**) 2025, **A&A**, 699, A335.
 
+### Books
+
+- [*Methodological guide for teachers on inclusive education*](https://hmk.am/wp-content/uploads/2023/02/%D5%86%D5%A5%D6%80%D5%A1%D5%BC%D5%B8%D5%B2-%D5%A4%D5%A1%D5%BD%D5%A1%D5%BE%D5%A1%D5%B6%D5%A4%D5%B8%D6%82%D5%B4-%D5%B4%D5%A5%D5%A9%D5%B8%D5%A4%D5%A1%D5%AF%D5%A1%D5%B6-%D5%B1%D5%A5%D5%BC%D5%B6%D5%A1%D6%80%D5%AF.pdf){:target="_blank"} — co-authored (section on teaching science in an inclusive classroom), **2023**, Republic of Armenia Ministry of Education.
+
 ### Posters
 
 - [*Characterizing High-Redshift Quasars (z>4.5) from 4MOST to LSST*]({{ '/assets/img/docs/poster_Mkrtchyan_2025_4MOST.pdf' | relative_url }}){:target="_blank"} — T. Mkrtchyan, presented at *SOCHIAS XX Annual Meeting*, Chile, 2025

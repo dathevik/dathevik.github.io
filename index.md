@@ -2,7 +2,7 @@
 layout: plain
 title: About me
 sitemap: false
-permalink: /about me
+permalink: /
 hide_last_modified: true
 no_grouping: true
 ---
