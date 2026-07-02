@@ -12,6 +12,7 @@ I mainly explore the universe by studying Active Galactic Nuclei in different co
 <p style="font-size: 1.2em; line-height: 1.4; margin-bottom: 0.5rem;">
   <a href="/science/projects/"> <strong>Projects</strong> </a><br>
   <a href="/science/publications/"> <strong>Publications</strong> </a><br>
+  <a href="/science/talks/"> <strong>Talks & Presentations</strong> </a><br>
   <a href="/science/collaborations/"> <strong>Collaborations</strong> </a><br>
   <a href="/science/outreach/"> <strong>Outreach</strong> </a>
 </p>
