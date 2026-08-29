@@ -45,3 +45,6 @@ _zip
 .bundle
 /assets/js/*hydejack-*
 /_sass/*/__*__/*
+
+# Master video source (374 MB); the web version is science/pso352_lya_halo.webp
+science/Movie_PSO352m15_alpha.mov

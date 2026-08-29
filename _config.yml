@@ -295,6 +295,8 @@ collections:
 
 exclude:
   #- science/projects/_posts/2025-02-01-1.md
+  # Original 357 MB capture; the web version is science/pso352_lya_halo.mp4
+  - science/Movie_PSO352m15_alpha.mov
   - .jekyll-cache
   - .sass-cache
   - .ruby-lsp

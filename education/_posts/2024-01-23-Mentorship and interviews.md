@@ -26,6 +26,58 @@ Beyond my mentorship work, I have also been an **invited speaker** at **various 
 
 
 - **Workshop on Game Design in Education**  
-[![Video 1 Thumbnail](https://img.youtube.com/vi/Xx1bnLTXz40/0.jpg)](https://www.youtube.com/watch?Xx1bnLTXz40)
+<a class="video-preview" href="https://www.youtube.com/watch?v=Xx1bnLTXz40" target="_blank" rel="noopener">
+  <img src="https://img.youtube.com/vi/Xx1bnLTXz40/maxresdefault.jpg" alt="Video preview" loading="lazy">
+  <span class="video-play" aria-hidden="true"></span>
+</a>
 - **Applications of the Scientific Method in Teaching** 
-[![Video 1 Thumbnail](https://img.youtube.com/vi/MgRg0j7gCNk/0.jpg)](https://www.youtube.com/watch?MgRg0j7gCNk)
+<a class="video-preview" href="https://www.youtube.com/watch?v=MgRg0j7gCNk" target="_blank" rel="noopener">
+  <img src="https://img.youtube.com/vi/MgRg0j7gCNk/maxresdefault.jpg" alt="Video preview" loading="lazy">
+  <span class="video-play" aria-hidden="true"></span>
+</a>
+
+<style>
+  .video-preview {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 34rem;
+    aspect-ratio: 16 / 9;
+    margin: 0.75rem 0 1.5rem;
+    overflow: hidden;
+    border-radius: 4px;
+  }
+
+  .video-preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .video-play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    transition: background 0.15s ease;
+  }
+
+  .video-play::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 0.7rem 0 0.7rem 1.15rem;
+    border-color: transparent transparent transparent #fff;
+  }
+
+  .video-preview:hover .video-play {
+    background: rgba(0, 0, 0, 0.82);
+  }
+</style>
