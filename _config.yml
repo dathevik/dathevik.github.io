@@ -320,6 +320,10 @@ collections:
 # ----------------------------------------------------------------------------------------
 
 exclude:
+  # Internal notes for working on this repo, not a page of the site. Without
+  # this, `jekyll-optional-front-matter` turns it into a published page at
+  # /CLAUDE/, because it is a .md file with no front matter.
+  - CLAUDE.md
   #- research/projects/_posts/2025-02-01-1.md
   # Original 357 MB capture; the web version is research/pso352_lya_halo.mp4
   - research/Movie_PSO352m15_alpha.mov
