@@ -1,8 +1,10 @@
 ---
 layout: plain
 title: Collaborations
-permalink: /science/collaborations/
+permalink: /research/collaborations/
 
+redirect_from:
+  - /science/collaborations/
 sitemap: false
 ---
 

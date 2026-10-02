@@ -1,19 +1,14 @@
 ---
 layout: plain
-title: Mentorship and Interviews
+title: Mentorship and trainings
 sitemap: false
-permalink: /education/mentorship/
-image1: /education/mentoring.jpg
-image_caption1: "Meeting on mentorship"
+permalink: /teaching/mentorship/
+redirect_from:
+  - /education/mentorship/
 ---
 
-<figure>
-  <img src="{{ page.image1 }}" alt="Mentoring" style="width: 80%; max-width: 600px; float: center; margin-right: 15px;">
-  <figcaption style="text-align: center; font-style: italic; font-size: 0.9em;">
-    {{ page.image_caption1 }}
-  </figcaption>
-</figure>
-
+<!-- No photo here: mentoring.jpg is already the banner for this section on
+     /teaching/, which is where visitors click through from. -->
 
 I have experience as a mentor in various startup initiatives for teenagers, including **Artsakh STEM Fest 2022, Startup Club Armenia, and the SpaceApps Challenge Armenia**. Additionally, I have mentored teachers in diverse aspects of education, such as **remote teaching methods, inclusive education, and science teaching methodologies in schools**, through programs accredited by the **Ministry of Education of the Republic of Armenia and UNICEF**.  
 

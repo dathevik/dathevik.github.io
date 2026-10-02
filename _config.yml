@@ -47,13 +47,39 @@ author:
   # twitter:             <username>
 
 # Add links to the sidebar.
+# An entry may have a `submenu:` list, which the sidebar renders as a
+# collapsible tree (see `_includes/body/nav.html`). Nesting another `submenu:`
+# inside a submenu entry adds a third level, shown indented when the section
+# is open. Labels here are independent of the pages' own titles, so keep them
+# short enough to fit the sidebar.
 menu:
-  - title:             Science
-    url:               /science/
-  - title:             Education
-    url:               /education/
+  - title:             Research
+    url:               /research/
+    submenu:
+      - title:         High-redshift quasars
+        url:           /research/high-redshift-quasars/
+      - title:         Circumgalactic medium
+        url:           /research/circumgalactic-medium/
+      - title:         Publications
+        url:           /research/publications/
+      - title:         Talks
+        url:           /research/talks/
+      - title:         Collaborations
+        url:           /research/collaborations/
+      - title:         Outreach and press
+        url:           /research/outreach/
+  - title:             Teaching
+    url:               /teaching/
+    submenu:
+      - title:         Mentorship and trainings
+        url:           /teaching/mentorship/
+      - title:         Work with students
+        url:           /teaching/students/
   - title:             Personal
     url:               /personal/
+    submenu:
+      - title:         News
+        url:           /personal/news/
   - title:             CV
     url:               /cv/
 
@@ -61,7 +87,7 @@ menu:
 
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2024. All rights reserved.
+copyright:             © 2026. All rights reserved.
 
 # Format of the permalinks
 permalink:             /:categories/:year-:month-:day-:title/
@@ -294,9 +320,9 @@ collections:
 # ----------------------------------------------------------------------------------------
 
 exclude:
-  #- science/projects/_posts/2025-02-01-1.md
-  # Original 357 MB capture; the web version is science/pso352_lya_halo.mp4
-  - science/Movie_PSO352m15_alpha.mov
+  #- research/projects/_posts/2025-02-01-1.md
+  # Original 357 MB capture; the web version is research/pso352_lya_halo.mp4
+  - research/Movie_PSO352m15_alpha.mov
   - .jekyll-cache
   - .sass-cache
   - .ruby-lsp
@@ -374,7 +400,15 @@ readme_index:
 relative_links:
   collections:         true
 
+# Disabled deliberately. This plugin's `title?` check treats EVERY collection
+# document (so every file under a `_posts/` directory) as having only an
+# "inferred" title, which means it ignores the `title:` in the front matter and
+# overwrites it with the page's first heading, then deletes that heading from the
+# body. On this site that silently renamed /research/talks/ to "Conferences" and
+# ate its "Conferences" subheading. Every page here sets its own title, so the
+# plugin has nothing to add. Leave it off.
 titles_from_headings:
+  enabled:             false
   strip_title:         true
   collections:         true
 

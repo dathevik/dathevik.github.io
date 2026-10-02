@@ -1,12 +1,18 @@
 ---
 layout: plain
 title: Publications
-permalink: /science/publications/
+permalink: /research/publications/
 
+redirect_from:
+  - /science/publications/
 sitemap: false
 ---
 
-### Publications
+<!-- No "### Publications" heading here: the page title above already says it.
+     It used to be in the body, but the titles-from-headings plugin was deleting
+     it on every build, so it never actually rendered. -->
+
+- [*Photometric redshifts for active galactic nuclei with LePHARE for the Vera C. Rubin Observatory*](https://arxiv.org/abs/2608.30494){:target="_blank"} — Shirley, R., Salvato, M., Cohen-Tanugi, J., et al. (incl. **Mkrtchyan, T.**) 2026, arXiv:2608.30494 *(preprint)*.
 
 - [*4MOST ChANGES: Catalog of high-redshift quasar candidates (4.5 < z < 7) selected with SED fitting*](https://doi.org/10.1051/0004-6361/202557171){:target="_blank"} — **Mkrtchyan, T.**, Mazzucchelli, C., Assef, R. J., et al. 2026, **A&A**, 710, A170.
 

@@ -49,6 +49,107 @@ Code for integrating CloudFlare's email protection with Hydejack's single page a
   });
 </script>
 
+<!--
+Collapsible sidebar navigation tree.
+Markup is in `_includes/body/nav.html`, styles in `_sass/my-inline.scss`.
+
+The sidebar sits outside `#_main`, so Hydejack's push-state navigation never
+replaces it. That means these listeners are attached once and survive every page
+transition, but it also means the "current page" marking has to be refreshed on
+each transition rather than rendered server-side.
+-->
+<script>
+  (function () {
+    var sidebar = document.getElementById('_sidebar');
+    if (!sidebar) return;
+
+    function setOpen(group, open) {
+      group.classList.toggle('is-open', open);
+      var toggle = group.querySelector('.nav-toggle');
+      if (toggle) toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    sidebar.addEventListener('click', function (e) {
+      var toggle = e.target.closest('.nav-toggle');
+      if (!toggle) return;
+      var group = toggle.closest('.nav-group');
+      if (group) setOpen(group, !group.classList.contains('is-open'));
+    });
+
+    // Strip trailing slashes so '/research/' and '/research' compare equal.
+    function normalize(path) {
+      return path.replace(/\/+$/, '') || '/';
+    }
+
+    // Mark the link to the current page, and expand the section holding it.
+    // Sections the visitor opened themselves are left open.
+    function syncCurrent() {
+      var here = normalize(location.pathname);
+
+      sidebar.querySelectorAll('.sidebar-nav-item, .nav-sub-item').forEach(function (link) {
+        link.classList.toggle('is-current', normalize(link.pathname) === here);
+      });
+
+      sidebar.querySelectorAll('.nav-group').forEach(function (group) {
+        var inSection = Array.prototype.some.call(
+          group.querySelectorAll('a[href]'),
+          function (link) {
+            var target = normalize(link.pathname);
+            return target === here || here.indexOf(target + '/') === 0;
+          }
+        );
+        if (inSection) setOpen(group, true);
+      });
+    }
+
+    syncCurrent();
+
+    var pushState = document.getElementById('_pushState');
+    if (pushState) {
+      pushState.addEventListener('hy-push-state-after', syncCurrent);
+    }
+
+    // Start the section labels where the tagline's text starts.
+    //
+    // The tagline stays centered, so its left edge is wherever the text happens
+    // to land, which depends on the visitor's system font. Measuring beats
+    // hardcoding an offset that would only be right on one machine. A Range over
+    // the paragraph's contents gives the text's own box rather than the full
+    // width of the centered block it sits in.
+    //
+    // Rather than compute the indent from the caret column, this compares where
+    // the first section label actually is against where it should be and shifts
+    // the existing padding by the difference. That way it stays correct however
+    // the caret and gap are sized. The nav is a full-width block, so its own
+    // left edge does not move when its padding changes, and one pass converges.
+    var sticky = sidebar.querySelector('.sidebar-sticky');
+    var tagline = sidebar.querySelector('.sidebar-about > p');
+    var nav = sidebar.querySelector('.sidebar-nav');
+    var firstLabel = nav && nav.querySelector('.sidebar-nav-item');
+
+    function alignNav() {
+      if (!sticky || !tagline || !firstLabel) return;
+
+      var range = document.createRange();
+      range.selectNodeContents(tagline);
+      var textLeft = range.getBoundingClientRect().left;
+
+      var labelLeft = firstLabel.getBoundingClientRect().left;
+      if (!textLeft || !labelLeft) return;
+
+      var current = parseFloat(window.getComputedStyle(nav).paddingLeft) || 0;
+      var next = Math.max(0, current + (textLeft - labelLeft));
+      sticky.style.setProperty('--nav-pad', next + 'px');
+    }
+
+    alignNav();
+    window.addEventListener('resize', alignNav);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(alignNav);
+    }
+  })();
+</script>
+
 {% comment %}
 <!--
 Example code for using Matamo as alternative analytics solution.

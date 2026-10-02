@@ -1,4 +1,161 @@
 // You can add CSS rules here that will be inlined into each document.
-// .sidebar a {
-//   text-shadow: rgba(0, 0, 0, 0.25) 0.1rem 0.1rem 0.15rem;
-// }
+
+// Collapsible sidebar navigation tree.
+// Markup: `_includes/body/nav.html`. Behavior: the script in `_includes/my-body.html`.
+// These live in the inlined stylesheet so the sidebar never renders unstyled.
+
+.sidebar-sticky {
+  // Width of the caret column, and the gap between a caret and its label.
+  // Every other indent is derived from these two, so a label can never end up
+  // half a gap out of line with its neighbours.
+  --nav-indent: 1.15rem;
+  --nav-gap: 0.3rem;
+  // Where a section label starts: past the caret and its gap.
+  --nav-label: calc(var(--nav-indent) + var(--nav-gap));
+  // Subpages sit one step further in than their section label.
+  --nav-sub-indent: calc(var(--nav-label) + 0.5rem);
+  // Indent of the whole nav block, chosen so the section labels begin exactly
+  // where the centered tagline's text begins.
+  //
+  // The tagline stays centered, so its left edge depends on how wide the text
+  // renders, which depends on the visitor's system font. The script in
+  // `_includes/my-body.html` measures both and overwrites this value. What is
+  // set here is only the fallback used before that runs, or with JavaScript off.
+  --nav-pad: 3.35rem;
+}
+
+// The nav tree is left aligned, indented so its labels line up with the
+// centered tagline above it. Carets hang to the left of the labels, inside
+// that indent.
+.sidebar-nav {
+  box-sizing: border-box;
+  text-align: left;
+  padding-left: var(--nav-pad);
+}
+
+// Underlines made the tree noisy, and the current page is marked with a shaded
+// pill instead (see `.is-current` below).
+.sidebar-nav a {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+// Section row: caret then label on one line.
+.nav-group-head {
+  display: flex;
+  align-items: center;
+  gap: var(--nav-gap);
+  margin-bottom: 0.5rem;
+
+  // The theme gives .sidebar-nav-item a bottom margin; here the row owns it.
+  .sidebar-nav-item {
+    margin-bottom: 0;
+  }
+}
+
+// Items with no subpages have no caret, so they are indented to the same left
+// edge as the section labels above them. That means clearing the caret AND the
+// gap that follows it, which is what `--nav-label` accounts for. The padding
+// goes on the <li> rather than the link, so it cannot interfere with the
+// `.is-current` highlight.
+.sidebar-nav > ul > li:not(.nav-group) {
+  padding-left: var(--nav-label);
+}
+
+.nav-toggle {
+  flex: none;
+  width: var(--nav-indent);
+  padding: 0.35rem 0;
+  margin: -0.35rem 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  line-height: 1;
+  text-align: left;
+  cursor: pointer;
+  opacity: 0.55;
+  transition: opacity 150ms ease;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+  }
+}
+
+// Triangle pointing right, rotating down when the section opens.
+.nav-caret {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0.3rem 0 0.3rem 0.42rem;
+  border-color: transparent transparent transparent currentColor;
+  transition: transform 200ms ease;
+}
+
+.nav-group.is-open .nav-caret {
+  transform: rotate(90deg);
+}
+
+// Subpages. Collapsed by default; the max-height only needs to exceed the
+// tallest section, so raise it if a section ever grows past roughly 12 items.
+.nav-sub {
+  list-style: none;
+  padding-left: var(--nav-sub-indent);
+  margin: 0 0 0.5rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 250ms ease, opacity 200ms ease;
+}
+
+.nav-group.is-open > .nav-sub {
+  max-height: 32rem;
+  opacity: 1;
+}
+
+.nav-sub-deep {
+  list-style: none;
+  padding-left: 0.9rem;
+  margin: 0;
+
+  .nav-sub-item {
+    font-size: 0.82rem;
+    opacity: 0.68;
+  }
+}
+
+// Lighter than the bold section labels above them, so the levels read apart.
+.nav-sub-item {
+  display: inline-block;
+  font-size: 0.92rem;
+  font-weight: var(--font-weight);
+  line-height: 1.35;
+  // Leaves room for the current-page halo without it touching the next item.
+  margin-bottom: 0.45rem;
+  opacity: 0.8;
+  transition: opacity 150ms ease;
+}
+
+// With underlines gone, hover needs to carry the affordance on its own.
+.sidebar-nav a:hover,
+.sidebar-nav a:focus-visible {
+  opacity: 1;
+}
+
+// Current page, set by the script on load and after each page transition.
+// A soft shade rather than an underline. The halo is drawn with box-shadow
+// instead of padding so the highlight adds no layout of its own: labels keep
+// exactly the same left edge whether or not they are the current page, at every
+// level of the tree. Both links are inline-block, so the shadow boxes cleanly.
+.sidebar .is-current {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 0.2rem;
+  box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.15);
+  opacity: 1;
+}
+
+.sidebar.invert .is-current {
+  background: rgba(32, 32, 32, 0.1);
+  box-shadow: 0 0 0 0.25rem rgba(32, 32, 32, 0.1);
+}
